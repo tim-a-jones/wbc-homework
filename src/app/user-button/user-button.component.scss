@@ -1,0 +1,11 @@
+button {
+    margin-right: 12px;
+    &:first {
+        margin-left: 0;
+    }
+}
+
+mat-spinner {
+    height: 50px !important;
+    width: 50px !important;
+}

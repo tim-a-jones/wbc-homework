@@ -1,0 +1,6 @@
+<mat-spinner  *ngIf="!(users | async)"></mat-spinner>
+<ng-container *ngIf="users | async as users">
+    <button mat-raised-button *ngFor="let user of users" (click)="selectUser(user)"
+        [color]="(selectedUser | async) === user ? 'accent' : 'primary'">{{user?.firstName}}
+    </button>
+</ng-container>

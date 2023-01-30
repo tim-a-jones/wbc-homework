@@ -1,0 +1,15 @@
+<p>Posts from {{user?.name}}</p>
+<mat-spinner  *ngIf="!(posts | async)"></mat-spinner>
+<ng-container  *ngFor="let post of (posts | async); index as i">
+    <div class="post" *ngIf="i < 3 || showAll">
+        <h2>{{post.title}}</h2>
+        <p>{{post.body}}</p>
+        <app-comments *ngIf="selectedPost === post" [postId]="selectedPost.id"></app-comments>
+        <button mat-raised-button *ngIf="selectedPost !== post" (click)="selectPost(post)" color="primary">
+            Show comments
+        </button>
+    </div>
+</ng-container>
+<button mat-raised-button (click)="toggleShowAll()"
+    color="primary">{{!showAll ? 'Show all' : 'Hide'}}
+</button>

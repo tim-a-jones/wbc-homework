@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService, User } from './data/data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'wbc-homework';
+  activeUser: User | undefined;
+  constructor(public data: DataService) {}
+
+  selectedUser(user: User) {
+    this.activeUser = user;
+  }
 }
